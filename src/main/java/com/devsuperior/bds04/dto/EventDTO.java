@@ -7,6 +7,7 @@ import com.devsuperior.bds04.entities.Event;
 
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class EventDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -17,6 +18,7 @@ public class EventDTO implements Serializable {
 	@FutureOrPresent(message = "A data do evento não pode ser passada")
 	private LocalDate date;
 	private String url;
+	@NotNull(message = "Campo requerido")
 	private Long cityId;
 	
 	public EventDTO() {

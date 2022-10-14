@@ -6,6 +6,7 @@ import com.devsuperior.bds04.repositories.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +18,9 @@ public class CityService {
 
     public List<CityDTO> findAll() {
         List<City> allCities = cityRepository.findAll();
-        return allCities.stream().map(CityDTO::new).collect(Collectors.toList());
+        return allCities.stream().map(CityDTO::new)
+                .sorted(Comparator.comparing(CityDTO::getName))
+                .collect(Collectors.toList());
     }
 
     public CityDTO insert(CityDTO dto) {
