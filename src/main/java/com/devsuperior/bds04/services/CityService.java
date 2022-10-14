@@ -25,7 +25,7 @@ public class CityService {
         return new CityDTO(citySaved);
     }
 
-    public City dtoToEntity(CityDTO dto) {
+    private City dtoToEntity(CityDTO dto) {
         return new City(dto.getId(), dto.getName());
     }
 }
